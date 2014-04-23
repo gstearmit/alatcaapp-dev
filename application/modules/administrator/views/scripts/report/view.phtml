@@ -1,0 +1,73 @@
+<?php 
+$title	  = $this->title;
+$default_sort_label	 = $this->default_sort_label;
+$default_sort_field	  = $this->default_sort_field;
+$arr_cbb= $this->arr_cbb;
+
+?>
+
+<form id="frmList" name="frmList" method="post">
+<input type="hidden" id="UrlUrl" value="<?php echo WEB_PATH;?>/administrator/report/view" />
+	<br/>
+	<div class="row">
+
+	<div class="box_message"></div>
+	<div class="col-md-4">
+	 <div class=' page-header-with-buttons'>
+	 	
+                <h1 class='' style="margin-top: 0px;">
+                  <i class=' icon-paper-clip  '></i>
+                  <span class="page_title"><?php echo $title;?></span>
+                </h1>
+              	</div>
+	</div>                  
+       		<div class="col-md-2 pull-right ">
+         			<?php /* 
+              		 <a href="<?php echo WEB_PATH;?>/administrator/ctapage/update" class="btn btn-primary pull-right" title="Add"> <i class="icon-plus "></i>
+              		Add 
+              		 </a>
+              		 */?>
+              		
+            </div>   
+            <div class="col-md-5 pull-right">
+			<div class="input-group controls-group">
+		                              <input id="keyword" name="keyword" class="form-control" type="text" name="q" class="form-control pull-left" placeholder="Enter a keyword ..." title="Enter a keyword ..." value="">
+		                              
+		                              <span class="input-group-btn">
+		                                <button id="search" type="button" class="btn  btn-primary" title="Search">
+		                                  <i class="icon-search"></i>
+		                                </button>
+		                                 <button style="width: 30px !important;background: none; border: 0px;">
+		                             		 <i id="loading" class="icon-spinner icon-spin"></i>
+		                                </button>
+		                                <div class="btn-group dropdown">
+                          <button class='btn dropdown-toggle btn-primary item_val' data-toggle='dropdown' style="min-width: 120px !important;">
+                              <span class="val_selected" ><?php echo $default_sort_label ;?></span>
+                            <span class='caret'></span>
+                          </button>
+                          <ul class='dropdown-menu val_select'>
+                          
+                          <?php 
+                          foreach ($arr_cbb as $item){
+                          ?>
+                          	<li>
+                          	<a href='#' value='<?php echo $item['value']?>'><?php echo $item['name']?></a>
+                          	</li>
+                          <?php }?>
+                            
+                          </ul>
+                        <input type="hidden" id="orderBy" name="orderBy" value="<?php echo $default_sort_field;?>">
+                        </div>
+                         <button  id="reset" type="button" class="btn btn-primary" title="Reset">
+		                                  <i class="icon-refresh"></i>
+		                                </button>
+		                                
+		                                
+		                                
+		                                
+		                              </span>
+		                            </div>
+		       </div>
+	</div>
+	<span id="reportArea"></span>
+</form>
