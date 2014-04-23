@@ -1,0 +1,3 @@
+ALTER TABLE `dw_visitors`
+	ADD COLUMN `ip` CHAR(50) NULL DEFAULT NULL AFTER `time_on_site`,
+	ADD COLUMN `browser` VARCHAR(500) NULL DEFAULT NULL AFTER `ip`;

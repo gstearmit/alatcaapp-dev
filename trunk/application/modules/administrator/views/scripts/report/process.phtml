@@ -1,0 +1,201 @@
+
+              <?php 
+	$report = $this->report;
+	$status	  = $this->status;
+	$message  = null;
+	if($status == 1){
+		$message = '<div class="ub_message">Dữ liệu đã được cập nhật thành công</div>';
+	}elseif($status == "-1"){
+		$message = '<div class="ub_message"><span>Page URL bị trùng, vui lòng chọn URL khác!</span></div>';
+	}
+	//$active = (int)@$ctapage['active'];
+	
+	//var_dump($report);
+?>
+<input type="hidden" id="id" name="id" value="<?php echo $this->id;?>">
+<input type="hidden" id="do" name="do" value="submit" />
+<div class='row' id='content-wrapper'>
+            <div class='col-xs-12'>
+              <div class='row'>
+                <div class='col-sm-12'>
+                  <div class='page-header'>
+                    <h1 class='pull-left'>
+                      <i class='icon-edit'></i>
+                      <span class="page_title">Add new / Update report</span>
+                    </h1>
+                  </div>
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-sm-12'>
+                  <div class='box'>
+                    <div class='box-header blue-background'>
+                      <div class='title'>
+                        <div class='icon-edit'></div>
+                        Report
+                      </div>
+                      <div class='actions'>
+                        <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+                        </a>
+                        <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+                        </a>
+                      </div>
+                    </div>
+                    <div class='box-content'>
+                    
+                        <form id="frmUpdate" name="frmUpdate" class="form form-horizontal validate-form" style="margin-bottom: 0;" method="post" action="<?php echo WEB_PATH;?>/administrator/report/process" accept-charset="UTF-8">
+						<input type="hidden" id="id" name="id" value="<?php echo $this->id;?>">
+						<input type="hidden" id="do" name="do" value="submit" />
+                        <input name="authenticity_token" type="hidden" />
+                        
+                        <input type="hidden" id="txt_header" name="txt_header" value="" />
+                        <input type="hidden" id="fields" name="txt_header" value="" />
+                       
+                       <div class="form-group">
+                          <label for="validation_name" class="control-label col-sm-3 col-sm-3">Module Name</label>
+                          <div class="col-sm-4 controls">
+                            <input type="text" placeholder="Module Name..." value="<?php echo $report['report_name'];?>" name="txt_module_name" id="txt_module_name" class="form-control">
+                          </div>
+                        </div>
+                        
+                        
+                        
+                        <!-- 
+                         <div class="form-group">
+                          <label for="validation_email" class="control-label col-sm-3">tbl : </label>
+                          <div id="value_tbl" class="col-sm-4 controls value_tbl">
+                            
+
+                          </div>
+                        </div>
+                        <div class="form-group">
+                        <label for="validation_email" class="control-label col-sm-3">Data field & Table header  : </label>
+                        <div class="input-group controls-group">
+                        
+                         
+                             <div class="col-sm-4 controls frm_table_data">
+		                              <div class="input-group-btn">
+		                              <input id="txt_data_field" name="keyword" class="form-control" type="text" name="q" class="form-control pull-left" placeholder="Enter a data field ..." title="Enter a keyword ..." value="">
+		                              <input id="txt_name_table" name="keyword" class="form-control" type="text" name="q" class="form-control pull-left" placeholder="Enter a table header ..." title="Enter a keyword ..." value="">
+		                                <button id="plus" type="button" class="btn  btn-success" title="plus">
+		                                  <i class="icon-plus"></i>
+		                                </button>
+		                                 
+		                              </div>
+		                              </div>
+		                            </div>
+					 	</div>
+						 -->
+                        
+                          <div class="form-group">
+                          <label for="validation_email" class="control-label col-sm-3">Header : </label>
+                          <div class="col-sm-4 controls">
+                            <input type="text" placeholder="Header table.." value="<?php echo $report['headers'];?>" name="txt_header" id="txt_header" class="form-control">
+                          </div>
+                        </div>
+                          <div class="form-group">
+                          <label for="validation_email" class="control-label col-sm-3"> Fields : </label>
+                          <div class="col-sm-4 controls">
+                            <input type="text" placeholder="Fields table..." value="<?php echo $report['fields'];?>" name="txt_fields" id="txt_fields" class="form-control">
+                          </div>
+                        </div>
+                        
+                        <div class="form-group">
+                          <label for="validation_email" class="control-label col-sm-3">SQL querry : </label>
+                          <div class="col-sm-4 controls">
+                            <input type="text" placeholder="Enter a sql querry..." value="<?php echo $report['select_query'];?>" name="txt_querry" id="txt_querry" class="form-control">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="validation_password" class="control-label col-sm-3">Search by :</label>
+                          <div class="col-sm-4 controls">
+                            <input type="text" placeholder="Enter a keywork search...." value="<?php echo $report['search_fields'];?>" name="txt_search_by" id="txt_search_by"  class="form-control">
+                          </div>
+                        </div>
+                        
+                        
+                        <div class="form-group">
+                          <label for="validation_password_confirmation" class="control-label col-sm-3">Sort default labels :</label>
+                          <div class="col-sm-4 controls">
+                            <input type="text" placeholder="Sort default labels...."  value="<?php echo $report['sort_default_label'];?>" name="txt_sort_default_labels" id="txt_sort_default_labels" class="form-control">
+                          </div>
+                        </div>
+                        
+                        <div class="form-group">
+                          <label for="validation_password_confirmation" class="control-label col-sm-3">Sort default fields :</label>
+                          <div class="col-sm-4 controls">
+                            <input type="text" placeholder="Sort default fields ...." value="<?php echo $report['sort_default__field'];?>" name="txt_sort_default_fieds" id="txt_sort_default_fieds" class="form-control">
+                          </div>
+                        </div>
+                        
+                         <div class="form-group">
+                          <label for="validation_password_confirmation" class="control-label col-sm-3">Sort default status :</label>
+                          <div class="col-sm-4 controls">
+                            <input type="text" placeholder="Sort default status...." value="<?php echo $report['sort_default__value'];?>" name="txt_sort_default_status" id="txt_sort_default_status" class="form-control">
+                          </div>
+                        </div>
+                        
+                        <div class="form-group">
+                          <label for="validation_password_confirmation" class="control-label col-sm-3">Sort labels :</label>
+                          <div class="col-sm-4 controls">
+                            <input type="text" placeholder="Sort labels...."  value="<?php echo $report['sort_labels'];?>" name="txt_sort_labels" id="txt_sort_labels" class="form-control">
+                          </div>
+                        </div>
+                        
+                        <div class="form-group">
+                          <label for="validation_password_confirmation" class="control-label col-sm-3">Sort fields :</label>
+                          <div class="col-sm-4 controls">
+                            <input type="text" placeholder="Sort fields..."  value="<?php echo $report['sort_fields'];?>" name="txt_sort_fields" id="txt_sort_fields" class="form-control">
+                          </div>
+                        </div>
+                        
+                         <div class="form-group">
+                          <label for="validation_password_confirmation" class="control-label col-sm-3">Sort status :</label>
+                          <div class="col-sm-4 controls">
+                            <input type="text" placeholder="Sort status "  value="<?php echo $report['sort_value'];?>" name="txt_sort_status" id="txt_sort_status" class="form-control">
+                          </div>
+                        </div>
+                      
+                      
+                      <div class="form-group">
+                          <label for="validation_password_confirmation" class="control-label col-sm-3">Description :</label>
+                          <div class="col-sm-4 controls">
+                          <textarea rows="5" cols="" class="form-control" id="txt_description" name ="txt_description">
+                          
+                          <?php echo $report['description'];?>
+                          </textarea>
+                          </div>
+                        </div>
+                      
+                
+                      
+                      
+                      <div class='form-actions form-actions-padding-sm'>
+                        <div class='row'>
+                          <div class='col-md-9 col-md-offset-3'>
+                            
+                            	 <button class='btn btn-primary' type='submit'>
+									<i class='icon-save'></i>
+									Save
+								  </button>
+                            
+                            
+                            
+                            
+                            <a href="<?php echo WEB_PATH.'/administrator/report';?>"><div class='btn'>Cancel</div></a>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      
+                      
+                      
+                      
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+</div>
+</form>

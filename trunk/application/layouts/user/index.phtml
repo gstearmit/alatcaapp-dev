@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <?php include_once APPLICATION_PATH.'/layouts/user/header.phtml';?>
+  <body class='contrast-red login blue-background'>
+    <div class='middle-container' style="background-color: #00ACEC; height: 450px;">
+      <div class='middle-row'>
+        <div class='middle-wrapper'>
+          <div class='login-container-header' style="background-color: #00ACEC;">
+            <div class='container'>
+              <div class='row'>
+                <div class='col-sm-12'>
+                  <div class='text-center'>
+                   <!--  <img src="<?php echo WEB_PATH;?>/public/assets/images/logo-web1.png" />  -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <?php echo $this->layout()->content;?>    
+          <?php include_once APPLICATION_PATH.'/layouts/user/footer.phtml';?>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

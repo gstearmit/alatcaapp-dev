@@ -1,0 +1,132 @@
+<?php
+@$auth = Zend_Auth::getInstance ();
+$user = $auth->getStorage ()->read ();
+// var_dump($user->role_id);die();
+
+if (isset ( $user->userid )) {
+	?>
+
+</script>
+
+<header>
+  
+	<nav class='navbar navbar-default '
+		style="background-color: #00ACEC; height: 40px;">
+		<a class='navbar-brand' href='<?php echo WEB_PATH;?>/administrator'>
+          <img width="40" height="40" class="logo" alt="Magazine Publish" src="<?php echo WEB_PATH;?>/public/lib_alatca/css/images/logo.png" />
+          <img width="21" height="21" class="logo-xs" alt="Magazine Publish" src="<?php echo WEB_PATH;?>/public/lib_alatca/css/logo.png" />
+        
+		</a> <a class='toggle-nav btn pull-left' href='#'
+			style="background-color: #00ACEC"> <i class='icon-reorder'></i>
+		</a>
+		<ul class="nav navbar-nav navbar-left">
+                                <li class="active"><a href="#"><img src="<?php echo WEB_PATH;?>/public/lib_alatca/css/images/h4.png" alt="h4" style="width: 33px;height: 28px;padding: 0px;margin: -5px 0px 0px -11px;float: left;"></a></li>
+                                <li class="dt-active"><a href="#"><img src="<?php echo WEB_PATH;?>/public/lib_alatca/css/images/h3-2.png" alt="h3" style="width: 29px;height: 29px;padding: 0px;margin: -5px 0px 0px -28px;float: left;"></a></li>
+                                <li class="homepage"><p>Page:</p></li>
+                                <li class="dropdown">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Home<b class="caret"></b></a>
+                                  <ul class="dropdown-menu">
+                                    <li><a href="#">Home</a></li>
+                                    <li><a href="#">About</a></li>
+                                    <li><a href="#">Contact</a></li>
+                                  </ul>
+                                </li>
+        </ul>
+		<ul class='nav navbar-nav navbar-right' style="background-color: #00ACEC">
+		    
+		    <li>
+				<button type="button" class="btn btn-default Preview-righ indexview"
+					data-toggle="tooltip" data-placement="bottom"
+					title="index "><a href="<?php echo WEB_PATH;?>/administrator" >index</a></button>
+				
+			</li>
+		    
+			<li><?php // onclick="undoLayout() #savecontent"?>
+				
+				<button type="button" class="btn btn-default undo-righ"  href="#undo" id="undo"
+					data-toggle="tooltip" data-placement="bottom" title="Undo Ctrl+Z" ><img src="<?php echo WEB_PATH;?>/public/lib_alatca/css/images/h7.png" style="width: 25px;height: 24px;padding: 0px;margin: -5px 0px 0px -11px;float: left;"></button>
+				
+				<button type="button" class="btn btn-default redo-right"
+					data-toggle="tooltip" data-placement="bottom" title="Redo Ctrl + Y"  href="#redo" id="redo" ><img src="<?php echo WEB_PATH;?>/public/lib_alatca/css/images/h8.png" style="width: 25px;height: 24px;padding: 0px;margin: -5px 0px 0px -11px;float: left;"></button>
+				
+				<button type="button" class="btn btn-default rulers-right"  href="#rulers" id="rulers"
+					data-toggle="tooltip" data-placement="bottom"
+					title="Rulers and Guides"><img src="<?php echo WEB_PATH;?>/public/lib_alatca/css/images/h9.png" style="width: 25px;height: 24px;padding: 0px;margin: -5px 0px 0px -11px;float: left;"></button>
+				<!-- 
+				<button type="button" class="btn btn-default gril-right" id="gridlines"
+					data-toggle="tooltip" data-placement="bottom" title="Gridlines"><img src="<?php echo WEB_PATH;?>/public/lib_alatca/css/images/h10.png" style="width: 25px;height: 24px;padding: 0px;margin: -5px 0px 0px -11px;float: left;"></button>
+				
+				<button type="button" class="btn btn-default snap-right"
+					data-toggle="tooltip" data-placement="bottom"
+					title="Snap to Objects"><img src="<?php echo WEB_PATH;?>/public/lib_alatca/css/images/h11.png" style="width: 25px;height: 24px;padding: 0px;margin: -5px 0px 0px -11px;float: left;"></button>
+				 -->
+				 
+				<button type="button" class="btn btn-default layout-right" id="devpreview"
+					data-toggle="tooltip" data-placement="bottom"
+					title="Layout editor files"><img src="<?php echo WEB_PATH;?>/public/lib_alatca/css/images/layout.png" style="width: 25px;height: 24px;padding: 0px;margin: -5px 0px 0px -11px;float: left;"></button>
+				
+				<button type="button" class="btn btn-default edit-right" id="edit"
+					data-toggle="tooltip" data-placement="bottom" title="edit"><img src="<?php echo WEB_PATH;?>/public/lib_alatca/css/images/edit.png" style="width: 25px;height: 24px;padding: 0px;margin: -5px 0px 0px -11px;float: left;"></button>
+				
+				<button type="button" class="btn btn-default save-right" href="/share/index" role="button" data-toggle="modal" data-target="#saveModal"
+					data-toggle="tooltip" data-placement="bottom" title="Save template"><img src="<?php echo WEB_PATH;?>/public/lib_alatca/css/images/save.png" style="width: 25px;height: 24px;padding: 0px;margin: -5px 0px 0px -11px;float: left;"></button>
+				
+				<button type="button" class="btn btn-default share-right"
+					data-toggle="tooltip" data-placement="bottom" title="Share"><img src="<?php echo WEB_PATH;?>/public/lib_alatca/css/images/share.png" style="width: 25px;height: 24px;padding: 0px;margin: -5px 0px 0px -11px;float: left;"></button>
+				
+				<button type="button" class="btn btn-default download-right" data-target="#downloadModal" rel="/build/downloadModal" role="button" data-toggle="modal"
+				<?php // onclick="downloadLayout()" ?>	data-toggle="tooltip" data-placement="bottom" title="Downloading"  ><img src="<?php echo WEB_PATH;?>/public/lib_alatca/css/images/download.png" style="width: 25px;height: 24px;padding: 0px;margin: -5px 0px 0px -11px;float: left;"></button>
+				
+				<button type="button" class="btn btn-default delete-right" href="#clear" id="clear"
+					data-toggle="tooltip" data-placement="bottom" title="Delete"> <img src="<?php echo WEB_PATH;?>/public/lib_alatca/css/images/detele.png" style="width: 25px;height: 24px;padding: 0px;margin: -5px 0px 0px -11px;float: left;"></button>
+			</li>
+			<li>
+				<button type="button" class="btn btn-default Preview-righ"
+					data-toggle="tooltip" data-placement="bottom"
+					title="Check out your site before you Publish">Preview</button>
+				<button type="button" class="btn btn-default Save-right"
+					data-toggle="tooltip" data-placement="bottom" title="Save a draft" onclick="saveLayout()">Save</button>
+				<button type="button" class="btn btn-default Publish-right"
+					data-toggle="tooltip" data-placement="bottom"
+					title="Publish online">Publish</button>
+
+			</li>
+
+
+			<li class='dropdown light  user-menu'><a class='dropdown-toggle'
+				data-toggle='dropdown' href='#'> <img style="border: 0px;"
+					width="23" height="23"
+					alt="<?php echo $user->firstname.' '.$user->lastname;?>"
+					src="<?php echo WEB_PATH;?>/public/assets/images/person.png" /> <span
+					class='user-name'><?php echo $user->lastname.' '.$user->firstname;?> </span>
+					<b class='caret'></b>
+			</a>
+
+				<ul class='dropdown-menu '>
+            <?php 
+/*
+	       * <li> <a href='<?php echo WEB_PATH;?>/administrator/user/profile'> <i class='icon-user'></i> My profile </a> </li>
+	       */
+	?>
+              <li><a
+						href='<?php echo WEB_PATH;?>/administrator/user/changepass'> <i
+							class=' icon-edit '></i> Change password
+					</a></li>
+					<li class='divider'></li>
+					<li><a href="<?php echo WEB_PATH;?>/front/index/logout"> <i
+							class='icon-signout'></i> Sign out
+					</a></li>
+				</ul></li>
+		</ul>
+
+	</nav>
+</header>
+<?php
+} // if(isset($user->userid))
+?>
+
+
+	
+
+	
+

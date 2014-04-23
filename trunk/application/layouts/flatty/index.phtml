@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+  	<script src="<?php echo WEB_PATH;?>/public/assets/javascripts/jquery/jquery.min.js" type="text/javascript"></script>
+    <title>magazine publishing</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <meta content='text/html;charset=utf-8' http-equiv='content-type'>
+   
+    <link href='<?php echo WEB_PATH;?>/public/assets/images/alatca.ico' rel='shortcut icon' type='image/x-icon'>
+    <link href='<?php echo WEB_PATH;?>/public/assets/images/meta_icons/apple-touch-icon.png' rel='apple-touch-icon-precomposed'>
+    <link href='<?php echo WEB_PATH;?>/public/assets/images/meta_icons/apple-touch-icon-57x57.png' rel='apple-touch-icon-precomposed' sizes='57x57'>
+    <link href='<?php echo WEB_PATH;?>/public/assets/images/meta_icons/apple-touch-icon-72x72.png' rel='apple-touch-icon-precomposed' sizes='72x72'>
+    <link href='<?php echo WEB_PATH;?>/public/assets/images/meta_icons/apple-touch-icon-114x114.png' rel='apple-touch-icon-precomposed' sizes='114x114'>
+    <link href='<?php echo WEB_PATH;?>/public/assets/images/meta_icons/apple-touch-icon-144x144.png' rel='apple-touch-icon-precomposed' sizes='144x144'>
+    <!-- / bootstrap [required] -->
+    <link href="<?php echo WEB_PATH;?>/public/assets/stylesheets/bootstrap/bootstrap.css" media="all" rel="stylesheet" type="text/css" />
+    <!-- / theme file [required] -->
+    <link href="<?php echo WEB_PATH;?>/public/assets/stylesheets/light-theme.css" media="all" id="color-settings-body-color" rel="stylesheet" type="text/css" />
+    <link href="<?php echo WEB_PATH;?>/public/assets/stylesheets/view-custom.css" rel="stylesheet" type="text/css" />
+    
+    
+     <!-- / START - page related stylesheets [optional] -->
+    <link href="<?php echo WEB_PATH;?>/public/assets/stylesheets/plugins/bootstrap_daterangepicker/bootstrap-daterangepicker.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="<?php echo WEB_PATH;?>/public/assets/stylesheets/plugins/fullcalendar/fullcalendar.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="<?php echo WEB_PATH;?>/public/assets/stylesheets/plugins/common/bootstrap-wysihtml5.css" media="all" rel="stylesheet" type="text/css" />
+    <!-- / END - page related stylesheets [optional] -->
+   
+    <!-- / coloring file [optional] (if you are going to use custom contrast color) -->
+    <link href="<?php echo WEB_PATH;?>/public/assets/stylesheets/theme-colors.css" media="all" rel="stylesheet" type="text/css" />
+    <!-- / demo file [not required!] -->
+    <link href="<?php echo WEB_PATH;?>/public/assets/stylesheets/demo.css" media="all" rel="stylesheet" type="text/css" />
+    <!--[if lt IE 9]>
+      <script src="<?php echo WEB_PATH;?>/public/assets/javascripts/ie/html5shiv.js" type="text/javascript"></script>
+      <script src="<?php echo WEB_PATH;?>/public/assets/javascripts/ie/respond.min.js" type="text/javascript"></script>
+    <![endif]-->
+     <link href="<?php echo WEB_PATH;?>/public/assets/stylesheets/styledetail_page.css" media="all" rel="stylesheet" type="text/css" />
+    
+    
+    
+    
+    <style type="text/css">
+.alert{
+text-align: center !important;
+/* background-color: #49BF67 !important*/
+}
+.box_message{
+position: fixed;
+height: 0px;
+top: 0px;
+left: 0px;
+width: 100%;
+z-index: 99999;
+}
+.font_big{
+font-size: 20px;
+font-family: arial;
+font-weight: bold;
+}
+.font_small{
+font-size: 14px;
+font-family: arial;
+margin-left: -45px;
+}
+.fix_small{
+margin-left: -45px;
+}
+ .icon-fix{
+ width: 31px !important;
+ height: 26px !important;
+ line-height: 30px !important;
+ }
+ .blue-background{
+ background-color:#9dc3d1 !important;
+ }
+ .combobox{
+ background: #00ACEC;
+color: #FFF;
+border: 1px solid transparent;
+ }
+ .combobox:hover{
+ background: #0087b9;
+ 
+ }
+ .blue-background .title{
+ 
+ }
+.silver-background{
+/*background-color: #767676;*/
+}
+
+@media screen and (min-width: 700px){
+.dashboard .scrollable-area{
+overflow: hidden !important;
+}
+}
+</style>
+    
+<?php //style editor magazin drag drop ?>
+ <link href="<?php echo WEB_PATH;?>/public/assets/stylesheets/magazineditor1.css" media="all" rel="stylesheet" type="text/css" />
+<?php // style editor magazin drag drop ?>    
+    
+    
+    
+ 
+     <!-- / jquery [required] -->
+    <script src="<?php echo WEB_PATH;?>/public/assets/javascripts/jquery/jquery.min.js" type="text/javascript"></script>
+    <!-- / jquery mobile (for touch events) -->
+    <script src="<?php echo WEB_PATH;?>/public/assets/javascripts/jquery/jquery.mobile.custom.min.js" type="text/javascript"></script>
+    <!-- / jquery migrate (for compatibility with new jquery) [required] -->
+    <script src="<?php echo WEB_PATH;?>/public/assets/javascripts/jquery/jquery-migrate.min.js" type="text/javascript"></script>
+    <!-- / jquery ui -->
+    <script src="<?php echo WEB_PATH;?>/public/assets/javascripts/jquery/jquery-ui.min.js" type="text/javascript"></script>
+    <!-- / jQuery UI Touch Punch -->
+    <script src="<?php echo WEB_PATH;?>/public/assets/javascripts/plugins/jquery_ui_touch_punch/jquery.ui.touch-punch.min.js" type="text/javascript"></script>
+    <!-- / bootstrap [required] -->
+    <script src="<?php echo WEB_PATH;?>/public/assets/javascripts/bootstrap/bootstrap.js" type="text/javascript"></script>
+    <!-- / modernizr -->
+    <script src="<?php echo WEB_PATH;?>/public/assets/javascripts/plugins/modernizr/modernizr.min.js" type="text/javascript"></script>
+    <!-- / retina -->
+    <script src="<?php echo WEB_PATH;?>/public/assets/javascripts/plugins/retina/retina.js" type="text/javascript"></script>
+    <!-- / theme file [required] -->
+    <script src="<?php echo WEB_PATH;?>/public/assets/javascripts/theme.js" type="text/javascript"></script>
+    <!-- / demo file [not required!] -->
+    <script src="<?php echo WEB_PATH;?>/public/assets/javascripts/demo.js" type="text/javascript"></script>
+
+    <!-- / START - page related files and scripts [optional] -->
+   
+    <script src="<?php echo WEB_PATH;?>/public/assets/javascripts/plugins/flot/excanvas.js" type="text/javascript"></script>
+    <script src="<?php echo WEB_PATH;?>/public/assets/javascripts/plugins/flot/flot.min.js" type="text/javascript"></script>
+    <script src="<?php echo WEB_PATH;?>/public/assets/javascripts/plugins/flot/flot.resize.js" type="text/javascript"></script>
+   
+    
+    <script src="<?php echo WEB_PATH;?>/public/assets/javascripts/plugins/bootstrap_daterangepicker/bootstrap-daterangepicker.js" type="text/javascript"></script>
+    <script src="<?php echo WEB_PATH;?>/public/assets/javascripts/plugins/common/moment.min.js" type="text/javascript"></script>
+    <script src="<?php echo WEB_PATH;?>/public/assets/javascripts/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
+    <script src="<?php echo WEB_PATH;?>/public/assets/javascripts/plugins/slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="<?php echo WEB_PATH;?>/public/assets/javascripts/plugins/timeago/jquery.timeago.js" type="text/javascript"></script>
+    <script src="<?php echo WEB_PATH;?>/public/assets/javascripts/plugins/common/wysihtml5.min.js" type="text/javascript"></script>
+    <script src="<?php echo WEB_PATH;?>/public/assets/javascripts/plugins/common/bootstrap-wysihtml5.js" type="text/javascript"></script>
+    <script src="<?php echo WEB_PATH;?>/public/assets/javascripts/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
+    <script src="<?php echo WEB_PATH;?>/public/assets/javascripts/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
+     <script src="<?php echo WEB_PATH;?>/public/assets/javascripts/plugins/validate/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="<?php echo WEB_PATH;?>/public/assets/javascripts/plugins/validate/additional-methods.js" type="text/javascript"></script>
+    <!--   <script src="<?php echo WEB_PATH;?>/public/assets/javascripts/process.js" type="text/javascript"></script>
+    -->
+    <?php echo $this->inlineScript();?>
+    <link href="<?php echo WEB_PATH;?>/public/assets/stylesheets/custom.css" media="all" id="color-settings-body-color" rel="stylesheet" type="text/css" />   
+    
+    <?php // ++++++++start scripts : lib++++++++++++++++++?>
+    <?php // ---------end scripts lib-----------------?>
+    <?php //+++++++<!-- rezise width  --> +++++++++?>
+     
+     <link href="<?php echo WEB_PATH;?>/public/lib_alatca/css/style.css" rel="stylesheet" />
+     <link href="<?php echo WEB_PATH;?>/public/lib_alatca/css/menualatca.css" rel="stylesheet" />
+     <script data-semver="1.2.13" src="<?php echo WEB_PATH;?>/public/lib_alatca/js/angular.js" data-require="angular.js@1.2.x"></script>
+     <script src="<?php echo WEB_PATH;?>/public/lib_alatca/js/app.js"></script>
+     <script src="<?php echo WEB_PATH;?>/public/lib_alatca/js/resizer.js"></script>
+     <?php //----------------<!-- end rezise width  -->----------------------?>
+     
+     <?php // drag drop ?>
+      <!-- Le styles -->
+
+<link href="<?php echo WEB_PATH;?>/public/lib_alatca/css/layoutit.css" rel="stylesheet">
+<link href="<?php echo WEB_PATH;?>/public/lib_alatca/css/layoutalatca.css" rel="stylesheet">
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+		<script src="<?php echo WEB_PATH;?>/public/lib_alatca/js/html5shiv.js"></script>
+	<![endif]-->
+
+
+
+<!--[if lt IE 9]>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<![endif]-->
+
+<script type="text/javascript" src="<?php echo WEB_PATH;?>/public/lib_alatca/js/jquery-ui.js"></script>
+<script type="text/javascript" src="<?php echo WEB_PATH;?>/public/lib_alatca/js/jquery.ui.touch-punch.min.js"></script>
+<script type="text/javascript" src="<?php echo WEB_PATH;?>/public/lib_alatca/js/jquery.htmlClean.js"></script>
+<!--  <script type="text/javascript" src="<?php echo WEB_PATH;?>/public/lib_alatca/js/ckeditor/ckeditor.js"></script>  
+     <script type="text/javascript" src="<?php echo WEB_PATH;?>/public/lib_alatca/ckeditor/config.js"></script>
+-->
+<style>
+.cke {
+	visibility: hidden;
+}
+</style>
+
+<script type="text/javascript" src="<?php echo WEB_PATH;?>/public/lib_alatca/js/scripts.js"></script>
+      
+     <?php // end drag drop?>
+     
+  </head>
+  <body class='contrast-blue edit ' ng-controller="MainCtrl" style=" min-height: auto; cursor: auto;" > <!-- edit -->
+    <?php include_once APPLICATION_PATH.'/layouts/flatty/header.phtml';?>
+    <div id='wrapper'>
+      <div id='main-nav-bg'></div>
+      <?php include_once APPLICATION_PATH.'/layouts/flatty/sidebar.phtml';?>
+      <section id='content'>
+        <div class='container' style="overflow-y: auto;">
+          <?php echo $this->layout()->content ?>    
+           <div id="content-resizer" 
+  			resizer="vertical"
+  			resizer-width="1" 
+  		    resizer-left="#top-content" 
+  		    resizer-right="#bottom-content"
+  	   	    resizer-max="1060">
+  		 </div>  
+          
+        </div>
+      </section>
+      <div id="sidebar-resizer" 
+  		resizer="vertical" 
+  		resizer-width="1" 
+  		resizer-left=".left_phucsidebar" 
+  		resizer-right="#content"
+  		resizer-max="350">
+  	 </div>
+      <?php //include_once APPLICATION_PATH.'/layouts/flatty/footer.phtml';?>
+    </div>
+  
+    
+    
+  </body>
+</html>

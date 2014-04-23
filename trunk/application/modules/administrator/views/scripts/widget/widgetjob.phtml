@@ -1,0 +1,25 @@
+<form id="frmJob" name="frmJob" method="post">
+	<input type="hidden" id="jobUrl" value="<?php echo WEB_PATH;?>/administrator/widget/widgetjob/" />
+	<div class="row">
+	  <div class='box-header'>
+                      <div class='title'><i class=' icon-envelope-alt  '> </i> <a href="<?php echo WEB_PATH;?>/administrator/job">Jobs</a></div>
+                       <button style="width: 30px !important;background: none; border: 0px;">
+				  
+				       </button>
+                      <div class='actions'>
+                        <a class='btn box-remove btn-xs btn-link' href='#'><i class='icon-remove'></i>
+                       </a>
+                         <button style="width: 30px !important;background: none; border: 0px;">
+		                             		 <i id="loading" class="loading icon-spinner icon-spin"></i>
+		                                </button>
+                        <a class='btn box-collapse btn-xs btn-link' href='#'><i></i>
+                        </a>
+                      </div>
+                      	
+       </div>
+        <div class='' style="border: 0px;padding: 10px;">
+        <span id="jobArea"></span>
+        </div>          
+	 </div>     
+
+</form>
