@@ -1,5 +1,6 @@
 <?php
 $lang = array();
+$lang['key_admin'] = 'Bang tong quat admin';
 $lang['username'] = 'Tên đăng nhập';
 $lang['password'] = 'Mật khẩu';
 $lang['login'] = 'Đăng nhập';
