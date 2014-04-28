@@ -1,0 +1,62 @@
+
+    <head>
+        <script type="text/javascript" >
+function ChangeService(obj) {
+    if (obj.value) {
+        window.location.href = obj.value;
+    }
+}
+</script>
+<div class='row' id='content-wrapper'>
+            <div class='col-xs-12 '><!-- wigetdrapdrop -->
+              <?php echo 'kjssjdsdskdsdsdskl';//die; 
+						//     echo 'bien dir'; var_dump($this->dir);
+						//     echo '</br>';
+						//     echo 'bien listFile'; var_dump($this->listFile);
+						//    die;
+						
+						?>    
+						
+						Select file html :
+						
+						<?php
+						echo "<select name='fileHtml' onchange='ChangeService(this);'>";
+						echo count($this->listFile["files"]) . "<br/><br/>";
+						//print_r($this->listFile);
+						
+						
+						$dir = $this->dir;
+						foreach ($this->listFile["files"] as $keyFile => $listFile) {
+						    $file = $this->listFile["files"][$keyFile];
+						
+						
+						    // echo $file;
+						    if (strpos($file, ".html") !== false) {
+						        $abc = str_replace("\\", "/", $this->listFile["files"][$keyFile]);
+						        $urlDir = str_replace($dir, "", $abc);
+						        $split = explode("/", $abc);
+						        $last = count($split) - 1;
+						        for ($i = 0; $i < count($split); $i++) {
+						            if ($i == $last) { ?>
+						                <option value='<?php echo WEB_PATH . "/administrator/editertemplate/loadfilehtml?namefile=" . $urlDir."&urlfile=".$urlDir; ?>'><?php echo $split[$last]; ?></option>
+						   
+						            <?php 
+						            
+						            }
+						        }
+						    }
+						}
+						
+						echo "</select>"; ?>
+	      </div><!-- end form -->
+
+
+	<?php //echo $this->action('index','magazinepublish','administrator');?>
+
+
+
+</div>
+<!-- end content-wrapper  -->
+    
+
+
