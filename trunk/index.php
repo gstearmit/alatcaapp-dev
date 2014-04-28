@@ -18,7 +18,8 @@ define('ROOT_PATH',
 defined('APPLICATION_PATH') || 
 define('APPLICATION_PATH',
         realpath(dirname(__FILE__).'/application'));
-
+define('LANG_PATH', 'application/languages');
+define('DEFAULT_LANGUAGE', 'en');
 
 defined('APPLICATION_ENV') || 
 define('APPLICATION_ENV',

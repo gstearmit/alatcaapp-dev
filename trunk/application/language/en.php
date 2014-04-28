@@ -1,6 +1,7 @@
 <?php
 
 $lang = array();
+$lang['key_admin'] = 'Admin View';
 $lang['username'] = 'Username';
 $lang['login_name'] = 'Login name';
 $lang['password'] = 'Password';

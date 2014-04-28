@@ -1,3 +1,13 @@
 @CHARSET "UTF-8";
 .page_title.viewadmin {font-size: 16px;}
 .icon-share-alt.vi-icon {padding-right: 5px;}
+
+.form-group {
+    float: left;
+    margin-bottom: 15px;
+    width: 100%;
+}
+.text-center {
+    font-size: 23px;
+    text-align: center;
+}
