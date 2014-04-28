@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <script type="text/javascript" >
+function ChangeService(obj) {
+    if (obj.value) {
+        window.location.href = obj.value;
+    }
+}
+</script>
+        
+    </head>
+    <body>
+
+Select file html :
+<?php
+echo "<select name='fileHtml' onchange='ChangeService(this);'>";
+echo count($this->listFile["files"]) . "<br/><br/>";
+//print_r($this->listFile);
+
+
+$dir = $this->dir;
+foreach ($this->listFile["files"] as $keyFile => $listFile) {
+    $file = $this->listFile["files"][$keyFile];
+
+
+    // echo $file;
+    if (strpos($file, ".html") !== false) {
+        $abc = str_replace("\\", "/", $this->listFile["files"][$keyFile]);
+        $urlDir = str_replace($dir, "", $abc);
+        echo "dia chi file :" . $urlDir . "<br/>";
+        $split = explode("/", $abc);
+        $last = count($split) - 1;
+        for ($i = 0; $i < count($split); $i++) {
+            if ($i == $last) { ?>
+                <option value='<?php echo WEB_PATH . "/administrator/editertemplate/loadfilehtml?namefile=" . $urlDir."&urlfile=".$urlDir; ?>'><?php echo $split[$last]; ?></option>
+   
+            <?php 
+            
+            }
+        }
+    }
+}
+
+echo "</select>"; ?>
+<form action="<?php echo WEB_PATH; ?>/administrator/editertemplate/creatinforproject" method="POST">
+
+
+    content Html   <input type="text" name="urlfile" value="<?php echo $this->urlfile; ?>"/><input type="submit" value="Save"/><br/>
+  
+    <textarea style="width: 527px;;height: 600px" name="cthtml">
+        <?php
+        foreach ($this->ctdata as $keyId => $dataCt) {
+            echo $dataCt;
+        }
+        ?>
+    </textarea>
+
+    <iframe width="520" height="600" src="<?php echo $this->srcFrame; ?>"></iframe>
+</form>
+                </body>
+</html>
